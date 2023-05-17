@@ -9,16 +9,16 @@ ext {
     PUBLISH_ARTIFACT_ID = 'youxel-datepicker'     // Has to be same as your library module name
     PUBLISH_DESCRIPTION = 'Android library to select range of dates.'
 
-    PUBLISH_URL = 'https://github.com/MohamedAssemAli/CalendarDateRangePicker'
+    PUBLISH_URL = 'https://github.com/MohamedAssemAli/Date-Range-Picker'
     PUBLISH_LICENSE_NAME = 'Apache License'
     PUBLISH_LICENSE_URL = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
 
     PUBLISH_DEVELOPER_ID = 'MohamedAssemAli'
     PUBLISH_DEVELOPER_NAME = 'Mohamed Assem'
     PUBLISH_DEVELOPER_EMAIL = 'mohamed.assem.ali@gmail.com'
-    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/ArchitShah248/CalendarDateRangePicker.git'
-    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/MohamedAssemAli/CalendarDateRangePicker.git'
-    PUBLISH_SCM_URL = 'https://github.com/MohamedAssemAli/CalendarDateRangePicker/tree/master'
+    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/MohamedAssemAli/Date-Range-Picker.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/MohamedAssemAli/Date-Range-Picker.git'
+    PUBLISH_SCM_URL = 'https://github.com/MohamedAssemAli/Date-Range-Picker/tree/master'
 }
 
 android {
