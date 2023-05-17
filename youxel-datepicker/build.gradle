@@ -3,23 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: "io.gitlab.arturbosch.detekt"
 apply plugin: "maven-publish"
 
-ext {
-    PUBLISH_GROUP_ID = 'io.github.youxel.datepicker'
-    PUBLISH_VERSION = '1.0.0'
-    PUBLISH_ARTIFACT_ID = 'youxel-datepicker'     // Has to be same as your library module name
-    PUBLISH_DESCRIPTION = 'Android library to select range of dates.'
-
-    PUBLISH_URL = 'https://github.com/MohamedAssemAli/Date-Range-Picker'
-    PUBLISH_LICENSE_NAME = 'Apache License'
-    PUBLISH_LICENSE_URL = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-
-    PUBLISH_DEVELOPER_ID = 'MohamedAssemAli'
-    PUBLISH_DEVELOPER_NAME = 'Mohamed Assem'
-    PUBLISH_DEVELOPER_EMAIL = 'mohamed.assem.ali@gmail.com'
-    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/MohamedAssemAli/Date-Range-Picker.git'
-    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/MohamedAssemAli/Date-Range-Picker.git'
-    PUBLISH_SCM_URL = 'https://github.com/MohamedAssemAli/Date-Range-Picker/tree/master'
-}
+group = 'com.youxel.datepicker'
+version = '1.0.0'
 
 android {
     compileSdkVersion 33
@@ -69,8 +54,21 @@ dependencies {
     androidTestImplementation "io.mockk:mockk-android:$mockk_version"
 }
 
-apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
 
 repositories {
     mavenCentral()
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.MohamedAssemAli'
+                artifactId = 'com.youxel.datepicker'
+                version = '1.0'
+            }
+        }
+    }
 }
