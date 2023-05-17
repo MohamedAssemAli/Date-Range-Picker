@@ -67,7 +67,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.MohamedAssemAli'
                 artifactId = 'com.youxel.datepicker'
-                version = '1.0'
+                version = '1.0.0'
             }
         }
     }
