@@ -1,1 +1,1 @@
-include ':app', ':youxel-datepicker'
+include ':youxel-datepicker'
