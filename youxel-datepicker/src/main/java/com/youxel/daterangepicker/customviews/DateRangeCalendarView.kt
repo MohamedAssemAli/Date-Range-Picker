@@ -10,7 +10,6 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.youxel.datepicker.R
@@ -213,27 +212,27 @@ class DateRangeCalendarView : LinearLayout, DateRangeCalendarViewApi {
         get() = mDateRangeCalendarManager.getMaxSelectedDate()
 
     override fun setDateRangeColor(color: Int) {
-        calendarStyleAttr.rangeDateColor = ContextCompat.getColor(context, color)
+        calendarStyleAttr.rangeDateColor = color
     }
 
     override fun setSelectedDateColor(color: Int) {
-        calendarStyleAttr.selectedDateColor = ContextCompat.getColor(context, color)
+        calendarStyleAttr.selectedDateColor = color
     }
 
     override fun setSelectedDateCircleColor(color: Int) {
-        calendarStyleAttr.selectedDateCircleColor = ContextCompat.getColor(context, color)
+        calendarStyleAttr.selectedDateCircleColor = color
     }
 
     override fun setRangeStripColor(color: Int) {
-        calendarStyleAttr.rangeStripColor = ContextCompat.getColor(context, color)
+        calendarStyleAttr.rangeStripColor = color
     }
 
     override fun setWeekColor(color: Int) {
-        calendarStyleAttr.weekColor = ContextCompat.getColor(context, color)
+        calendarStyleAttr.weekColor = color
     }
 
     override fun setDefaultDateColor(color: Int) {
-        calendarStyleAttr.defaultDateColor = ContextCompat.getColor(context, color)
+        calendarStyleAttr.defaultDateColor = color
     }
 
     /**
