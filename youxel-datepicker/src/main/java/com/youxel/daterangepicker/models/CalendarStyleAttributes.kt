@@ -21,22 +21,22 @@ interface CalendarStyleAttributes {
     @get:ColorInt
     var weekColor: Int
 
-    @get:ColorInt
+//    @get:ColorInt
     var rangeStripColor: Int
 
-    @get:ColorInt
+//    @get:ColorInt
     var selectedDateCircleColor: Int
 
-    @get:ColorInt
+//    @get:ColorInt
     var selectedDateColor: Int
 
-    @get:ColorInt
+//    @get:ColorInt
     var defaultDateColor: Int
 
     @get:ColorInt
     val disableDateColor: Int
 
-    @get:ColorInt
+//    @get:ColorInt
     var rangeDateColor: Int
     val textSizeTitle: Float
     val textSizeWeek: Float
