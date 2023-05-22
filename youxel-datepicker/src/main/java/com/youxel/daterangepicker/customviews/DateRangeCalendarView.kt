@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.youxel.datepicker.R
