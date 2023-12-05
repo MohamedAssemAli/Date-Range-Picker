@@ -1,6 +1,7 @@
 package com.youxel.daterangepicker.customviews
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
@@ -8,12 +9,13 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.youxel.datepicker.R
+import com.youxel.datepicker.R.layout
 import com.youxel.daterangepicker.models.CalendarStyleAttrImpl
 import com.youxel.daterangepicker.models.CalendarStyleAttributes
 import java.text.DateFormatSymbols
@@ -47,11 +49,13 @@ class DateRangeCalendarView : LinearLayout, DateRangeCalendarViewApi {
     private fun initViews(
         context: Context, attrs: AttributeSet?
     ) {
-        locale = context.resources.configuration.locale
+        if (!::locale.isInitialized) {
+            locale = context.resources.configuration.locale
+        }
         calendarStyleAttr = CalendarStyleAttrImpl(context, attrs)
         val layoutInflater = LayoutInflater.from(context)
-        layoutInflater.inflate(R.layout.layout_calendar_container, this, true)
-        val rlHeaderCalendar = findViewById<RelativeLayout>(R.id.rlHeaderCalendar)
+        layoutInflater.inflate(layout.layout_calendar_container, this, true)
+        val rlHeaderCalendar = findViewById<ConstraintLayout>(R.id.rlHeaderCalendar)
         rlHeaderCalendar.background = calendarStyleAttr.headerBg
         tvYearTitle = findViewById(R.id.tvYearTitle)
         tvYearTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, calendarStyleAttr.textSizeTitle)
@@ -184,6 +188,11 @@ class DateRangeCalendarView : LinearLayout, DateRangeCalendarViewApi {
         imgVNavRight.setImageDrawable(rightDrawable)
     }
 
+    override fun setNavIconsTint(color: Int) {
+        imgVNavLeft.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+        imgVNavRight.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+    }
+
     /**
      * Sets start and end date.<br></br>
      * <B>Note:</B><br></br>
@@ -213,27 +222,31 @@ class DateRangeCalendarView : LinearLayout, DateRangeCalendarViewApi {
         get() = mDateRangeCalendarManager.getMaxSelectedDate()
 
     override fun setDateRangeColor(color: Int) {
-        calendarStyleAttr.rangeDateColor = color
+        calendarStyleAttr.rangeDateColor = ContextCompat.getColor(context, color)
     }
 
     override fun setSelectedDateColor(color: Int) {
-        calendarStyleAttr.selectedDateColor = color
+        calendarStyleAttr.selectedDateColor = ContextCompat.getColor(context, color)
     }
 
     override fun setSelectedDateCircleColor(color: Int) {
-        calendarStyleAttr.selectedDateCircleColor = color
+        calendarStyleAttr.selectedDateCircleColor = ContextCompat.getColor(context, color)
     }
 
     override fun setRangeStripColor(color: Int) {
-        calendarStyleAttr.rangeStripColor = color
+        calendarStyleAttr.rangeStripColor = ContextCompat.getColor(context, color)
     }
 
     override fun setWeekColor(color: Int) {
-        calendarStyleAttr.weekColor = color
+        calendarStyleAttr.weekColor = ContextCompat.getColor(context, color)
     }
 
     override fun setDefaultDateColor(color: Int) {
-        calendarStyleAttr.defaultDateColor = color
+        calendarStyleAttr.defaultDateColor = ContextCompat.getColor(context, color)
+    }
+
+    override fun setLocale(customLocale: Locale) {
+        locale = customLocale
     }
 
     /**
